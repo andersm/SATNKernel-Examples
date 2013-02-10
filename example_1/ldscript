@@ -1,0 +1,24 @@
+/*
+ * Based on Bart Trzynadlowski's Custom Sega Saturn Linker Script
+ * Public domain
+ *
+ */
+
+OUTPUT_FORMAT("elf32-sh")
+ENTRY(_start)
+
+SECTIONS
+{
+    . = 0x6004000;
+    .text :
+    {
+        *(.text);
+    }
+    .data :
+    {
+        *(.data);
+    }
+    __bss_start = .;
+    .bss : { *(.bss);  }
+    __bss_end = .;
+}
